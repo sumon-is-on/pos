@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('role_permissions', function (Blueprint $table) {
+        Schema::create('roles_permissions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('role_id')->constrained('roles')->restrictOnDelete();
             $table->foreignId('permission_id')->constrained('permissions')->restrictOnDelete();
