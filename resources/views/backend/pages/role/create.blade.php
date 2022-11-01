@@ -3,7 +3,7 @@
 <div class="m-6">
     <h1 class="text-4xl font-semibold" >ADD A NEW ROLE</h1>
 </div>
-<form action="" method="" enctype="multipart/form-data">
+<form action="{{route('admin.role.store')}}" method="post" enctype="multipart/form-data">
     @csrf
     @includeIf('backend.pages.role.fields')
     <div class="flex  space-x-4 m-7">

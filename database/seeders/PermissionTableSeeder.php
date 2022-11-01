@@ -23,8 +23,8 @@ class PermissionTableSeeder extends Seeder
         ]);
         Permission::updateorCreate([
             'module_id' => $dashboardModule->id,
-            'name' => 'product.list',
-            'slug' => Str::slug('product.list'),
+            'name' => 'dashboard',
+            'slug' => Str::slug('dashboard'),
         ]);
 
         $ProductModule = Module::updateOrCreate([
