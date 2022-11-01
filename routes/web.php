@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/',[DashboardController::class,'dashboard'])->name('admin.dashboard');
 Route::resource('user',UserController::class);
-Route::controller(RoleController::class)->group(function(){
-    Route::get('/role/index','index')->name('admin.role.index');
-    Route::get('/role/create','create')->name('admin.role.create');
+Route::prefix('role')->controller(RoleController::class)->group(function(){
+    Route::get('/index','index')->name('admin.role.index');
+    Route::get('/create','create')->name('admin.role.create');
+    Route::post('/store','store')->name('admin.role.store');
 });
