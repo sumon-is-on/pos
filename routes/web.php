@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\backend\AuthController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\RoleController;
 use App\Http\Controllers\backend\UserController;
@@ -15,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/',[DashboardController::class,'dashboard'])->name('admin.dashboard');
+Route::controller(AuthController::class)->group(function(){
+    Route::get('/','login')->name('admin.login');
+});
+Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('admin.dashboard');
 Route::resource('user',UserController::class);
 Route::prefix('role')->controller(RoleController::class)->group(function(){
     Route::get('/index','index')->name('admin.role.index');
