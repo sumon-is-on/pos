@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/tailwind.output.css') }}" />
     <script src="{{ asset('js/alpine.min.js') }}" defer></script>
     <script src="{{ asset('js/init.alpine.js') }}"></script>
+    @notifyCss
     @vite('resources/js/app.js')
   </head>
   <body>
@@ -22,5 +23,7 @@
         @yield('content')
       </div>
     </div>
+    <x:notify-messages />
+    @notifyJs
   </body>
 </html>

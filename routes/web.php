@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 Route::controller(AuthController::class)->group(function(){
     Route::get('/','login')->name('admin.login');
+    Route::post('/lohin','loginPost')->name('admin.loginPost');
+    Route::get('/logout','logout')->name('admin.logout');
 });
 Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('admin.dashboard');
 Route::resource('user',UserController::class);
