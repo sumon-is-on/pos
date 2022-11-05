@@ -17,4 +17,10 @@ class RoleRepository{
 
        $role->permissions()->sync($request->permission_ids);
     }
+
+    public function update(Request $request,$role_id)
+    {
+        $role = Role::with('permissions')->find($role_id);
+        $role->permissions()->sync($request->permission_ids);
+    }
 }
